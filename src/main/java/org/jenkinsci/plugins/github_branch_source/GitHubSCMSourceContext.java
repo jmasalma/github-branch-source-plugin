@@ -65,6 +65,8 @@ public class GitHubSCMSourceContext extends SCMSourceContext<GitHubSCMSourceCont
     private Set<ChangeRequestCheckoutStrategy> forkPRStrategies = EnumSet.noneOf(ChangeRequestCheckoutStrategy.class);
     /** {@code true} if notifications should be disabled in this context. */
     private boolean notificationsDisabled;
+    /** {@code true} if builds should not be triggered when a pull request title or description is edited. */
+    private boolean ignoreEditedPullRequests;
     /**
      * Strategies used to notify Github of build status.
      *
