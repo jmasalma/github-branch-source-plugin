@@ -313,7 +313,7 @@ public class GitHubSCMSourceContext extends SCMSourceContext<GitHubSCMSourceCont
         notificationsDisabled = disabled;
         return this;
     }
- 
+
     /**
      * Defines whether builds should be suppressed when a pull request title or description is edited.
      *
