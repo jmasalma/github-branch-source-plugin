@@ -180,6 +180,16 @@ public class GitHubSCMSourceContext extends SCMSourceContext<GitHubSCMSourceCont
     }
 
     /**
+     * Returns {@code true} if builds should not be triggered when a pull request title or description
+     * is edited.
+     *
+     * @return {@code true} if builds should not be triggered on pull request edited events.
+     */
+    public final boolean ignoreEditedPullRequests() {
+        return ignoreEditedPullRequests;
+    }
+
+    /**
      * Adds a requirement for branch details to any {@link GitHubSCMSourceRequest} for this context.
      *
      * @param include {@code true} to add the requirement or {@code false} to leave the requirement as
@@ -301,6 +311,18 @@ public class GitHubSCMSourceContext extends SCMSourceContext<GitHubSCMSourceCont
     @NonNull
     public final GitHubSCMSourceContext withNotificationsDisabled(boolean disabled) {
         notificationsDisabled = disabled;
+        return this;
+    }
+ 
+    /**
+     * Defines whether builds should be suppressed when a pull request title or description is edited.
+     *
+     * @param ignore {@code true} to suppress builds on pull request edited events.
+     * @return {@code this} for method chaining.
+     */
+    @NonNull
+    public final GitHubSCMSourceContext withIgnoreEditedPullRequests(boolean ignore) {
+        ignoreEditedPullRequests = ignoreEditedPullRequests || ignore;
         return this;
     }
 
